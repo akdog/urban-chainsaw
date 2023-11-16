@@ -4,21 +4,30 @@ import styled from "styled-components";
 //Import Components
 import LoginContainer from "../components/LoginContainer";
 import ButtonContainer from "../components/ButtonContainer";
-import InputContainer from "../components/InputContainer";
+import RegisterInputContainer from "../components/RegisterInputContainer";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <Main>
       <Header>
         <h1>Hello!👋</h1>
         <ButtonContainer />
         <h5>or</h5>
-        <InputContainer />
+        <RegisterInputContainer />
       </Header>
       <LoginContainer />
     </Main>
   );
 };
+
+const Main = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 1rem;
+`;
 
 const Header = styled.div`
   width: 100%;
@@ -30,13 +39,4 @@ const Header = styled.div`
   }
 `;
 
-const Main = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  padding: 1rem;
-`;
-
-export default LoginPage;
+export default RegisterPage;
