@@ -27,6 +27,18 @@ const Slider = () => {
             alt="Logo Image"
           />
         </div>
+        <div className="logo-container">
+          <img
+            src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.landing-big_2x.jpg"
+            alt="Logo Image"
+          />
+        </div>
+        <div className="logo-container">
+          <img
+            src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.landing-big_2x.jpg"
+            alt="Logo Image"
+          />
+        </div>
       </div>
     </Main>
   );
@@ -49,14 +61,17 @@ const Main = styled.div`
   .slider-container {
     width: 100%;
 
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 
     .logo-container {
-      width: 40%;
+      width: 30%;
+      display: inline-block;
+
       img {
         width: 100%;
+        padding: 0.2rem;
       }
     }
   }

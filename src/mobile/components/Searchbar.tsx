@@ -28,17 +28,33 @@ const Searchbar = () => {
   );
 };
 
+// const Main = styled.div`
+//   display: flex;
+//   align-items: flex-end;
+//   width: 100%;
+// `;
+
+// const StyledTextField = styled(TextField)`
+//   flex: 8;
+// `;
+
+// const StyledCircleIcon = styled(AddCircleOutlinedIcon)`
+//   flex: 1;
+// `;
+
+const Main = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
 const StyledTextField = styled(TextField)`
-  flex: 8;
+  flex: 5;
 `;
 
 const StyledCircleIcon = styled(AddCircleOutlinedIcon)`
   flex: 1;
 `;
 
-const Main = styled.div`
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
-`;
 export default Searchbar;
