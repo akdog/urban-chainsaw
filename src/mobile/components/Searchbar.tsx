@@ -1,59 +1,88 @@
-import React from "react";
+import { useLocation } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { InputAdornment } from "@mui/material";
-import TextField from "@mui/material/TextField";
-
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
+import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 const Searchbar = () => {
+  const location = useLocation();
+
+  if (location.pathname === "/category") {
+    return (
+      <MainCategory>
+        <StyledFrontIcon id="catalog-basic" />
+        <div className="icon-container">
+          <SearchOutlinedIcon />
+          <StyledInput type="text" placeholder="Search" />
+        </div>
+        <ShoppingCartOutlinedIcon id="shop-icon" />
+      </MainCategory>
+    );
+  }
   return (
     <Main>
-      <StyledCircleIcon id="catalog-basic" />
-      <StyledTextField
-        id="filled-start-adornment"
-        variant="standard"
-        fullWidth
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchOutlinedIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
+      <StyledFrontIcon id="catalog-basic" />
+      <div className="icon-container">
+        <SearchOutlinedIcon />
+        <StyledInput type="text" placeholder="Search" />
+      </div>
     </Main>
   );
 };
 
-// const Main = styled.div`
-//   display: flex;
-//   align-items: flex-end;
-//   width: 100%;
-// `;
+const MainCategory = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0rem;
 
-// const StyledTextField = styled(TextField)`
-//   flex: 8;
-// `;
+  #shop-icon {
+    margin-right: 1rem;
+  }
 
-// const StyledCircleIcon = styled(AddCircleOutlinedIcon)`
-//   flex: 1;
-// `;
+  .icon-container {
+    position: relative;
+    flex: 5;
+
+    display: flex;
+    align-items: center;
+
+    svg {
+      position: absolute;
+    }
+  }
+`;
 
 const Main = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+
+  .icon-container {
+    position: relative;
+    flex: 5;
+
+    display: flex;
+    align-items: center;
+
+    svg {
+      position: absolute;
+    }
+  }
 `;
 
-const StyledTextField = styled(TextField)`
-  flex: 5;
+const StyledInput = styled.input`
+  outline: none;
+  border: none;
+  text-indent: 1.5rem;
+  font-size: 1rem;
 `;
 
-const StyledCircleIcon = styled(AddCircleOutlinedIcon)`
+const StyledFrontIcon = styled(StorefrontOutlinedIcon)`
   flex: 1;
 `;
 

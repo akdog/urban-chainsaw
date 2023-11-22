@@ -14,7 +14,7 @@ const Navbar = () => {
           <div className="image-container">
             <img src={logo} alt="Image of Logo" />
           </div>
-          <h4>RandomShop</h4>
+          <h3>ChopShop</h3>
         </div>
         <div className="icons-container">
           <LanguageOutlinedIcon fontSize="medium" />
@@ -31,8 +31,7 @@ const Main = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  padding: 1rem 0.4rem;
+  padding: 0.4rem;
 `;
 
 const Nav = styled.nav`
