@@ -2,19 +2,22 @@ import styled from "styled-components";
 
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
-const Product = () => {
+import { Product } from "@/types/TPorducts";
+
+type Props = {
+  item: Product;
+};
+
+const ProductComp = ({ item }: Props) => {
   return (
     <Main>
       <div className="img-container">
-        <img
-          src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.landing-big_2x.jpg"
-          alt="Logo Image"
-        />
+        <img src={item.image} alt="Logo Image" />
       </div>
-      <h5>Iphone 14</h5>
+      <h5>{item.title}</h5>
       <div className="product-detail">
-        <h3>3755$</h3>
-        <p>0% 18m</p>
+        <h3>{item.price}$</h3>
+        <p>{item.rating.count}</p>
       </div>
       <div className="add-cart-container">
         <FavoriteBorderOutlinedIcon />
@@ -68,7 +71,7 @@ const Main = styled.div`
   }
   .img-container {
     width: 100%;
-    height: 100%;
+    height: 60%;
 
     img {
       width: 100%;
@@ -78,4 +81,4 @@ const Main = styled.div`
   }
 `;
 
-export default Product;
+export default ProductComp;

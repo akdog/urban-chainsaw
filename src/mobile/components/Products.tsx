@@ -1,13 +1,17 @@
+import { useContext } from "react";
+import { ProductContext } from "@/context/ProductStore";
+
 import styled from "styled-components";
 
-import Product from "./Product";
+import ProductComp from "./Product";
 const Products = () => {
+  const data = useContext(ProductContext);
+
   return (
     <Main>
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      {data?.map((item) => (
+        <ProductComp key={item.id} item={item} />
+      ))}
     </Main>
   );
 };
