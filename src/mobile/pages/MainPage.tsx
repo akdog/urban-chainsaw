@@ -2,12 +2,17 @@ import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import TopCategory from "../components/TopCategory";
 
-const MainPage = () => {
+type Props = {
+  category: number;
+  setCategory: number;
+};
+
+const MainPage = ({ setCategory, category }: Props) => {
   return (
     <>
       <Navbar />
       <Slider />
-      <TopCategory />
+      <TopCategory setCategory={setCategory} category={category} />
     </>
   );
 };

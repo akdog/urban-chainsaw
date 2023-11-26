@@ -2,7 +2,12 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-const TopCategory = () => {
+type Props = {
+  category: number;
+  setCategory: number;
+};
+
+const TopCategory = ({ setCategory, category }: Props) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {

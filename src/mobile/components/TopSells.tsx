@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styled from "styled-components";
 
 const TopSells = () => {
@@ -5,7 +7,7 @@ const TopSells = () => {
     <Main>
       <div className="header-container">
         <h2>Leaders of sells</h2>
-        <a href="">View All</a>
+        <Link to="/all">View All</Link>
       </div>
       <div className="product-category">
         <div className="categorys">

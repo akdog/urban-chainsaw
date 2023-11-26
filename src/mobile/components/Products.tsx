@@ -4,13 +4,26 @@ import { ProductContext } from "@/context/ProductStore";
 import styled from "styled-components";
 
 import ProductComp from "./Product";
+import { useLocation } from "react-router-dom";
+
 const Products = () => {
   const data = useContext(ProductContext);
+  const location = useLocation();
+
+  if (location.pathname === "/all") {
+    return (
+      <MainAll className="products-container">
+        {data?.map((item) => (
+          <ProductComp key={item.id} item={item} location={location} />
+        ))}
+      </MainAll>
+    );
+  }
 
   return (
-    <Main>
+    <Main className="products-container">
       {data?.map((item) => (
-        <ProductComp key={item.id} item={item} />
+        <ProductComp key={item.id} item={item} location={location} />
       ))}
     </Main>
   );
@@ -23,7 +36,12 @@ const Main = styled.div`
   flex-wrap: nowrap;
   gap: 0.35rem;
   overflow-x: auto;
+  width: 100%;
+`;
 
+const MainAll = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
 `;
 

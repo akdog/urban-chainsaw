@@ -9,7 +9,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 const Searchbar = () => {
   const location = useLocation();
 
-  if (location.pathname === "/category") {
+  if (location.pathname === "/category" || "/all") {
     return (
       <MainCategory>
         <StyledFrontIcon id="catalog-basic" />
@@ -39,6 +39,11 @@ const MainCategory = styled.div`
   width: 100%;
   padding: 1rem 0rem;
 
+  background: white;
+
+  position: sticky;
+  top: 0;
+
   #shop-icon {
     margin-right: 1rem;
   }
@@ -61,6 +66,7 @@ const Main = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  background: white;
 
   .icon-container {
     position: relative;

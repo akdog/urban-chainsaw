@@ -17,20 +17,20 @@ export const ProductProvider = ({
   const [locationData, setLocationData] = useState<string>("");
 
   useEffect(() => {
-    if (currentLocation === "/") {
+    if (currentLocation === "/main") {
       setLocationData("");
     } else if (currentLocation === "/category") {
       setLocationData("/category/electronics");
+    } else if (currentLocation === "/all") {
+      setLocationData("");
     }
   }, [currentLocation]);
-
-  console.log(locationData);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products${locationData}`)
       .then((res) => res.json())
       .then((json) => setData(json));
-  }, []);
+  }, [locationData]);
 
   return (
     <>
