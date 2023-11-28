@@ -10,3 +10,8 @@ export type Product = {
     count: number;
   };
 };
+
+export type CategoryItem = {
+  id: string;
+  category: number;
+};

@@ -1,22 +1,30 @@
-import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 
+import { ProductContext } from "@/context/ProductStore";
+import { Product } from "@/types/TPorducts";
+
 const BasketHeader = () => {
-  return (
-    <Main>
-      <div className="img-container">
-        <img
-          src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.landing-big_2x.jpg"
-          alt="Logo Image"
-        />
-      </div>
-      <div className="text-container">
-        <h1>Iphone 9</h1>
-        <h3>20$</h3>
-        <button>In the Basket</button>
-      </div>
-    </Main>
-  );
+  const data: Product[] | undefined = useContext(ProductContext);
+
+  if (data === undefined || data[3] === undefined) {
+    return <div>Loading...</div>;
+  }
+
+  if (data) {
+    return (
+      <Main>
+        <div className="img-container">
+          <img src={data[3].image} alt="Logo Image" />
+        </div>
+        <div className="text-container">
+          <h1>{data[3].title}</h1>
+          <h3>{data[3].price}$</h3>
+          <button>In the Basket</button>
+        </div>
+      </Main>
+    );
+  }
 };
 
 const Main = styled.div`

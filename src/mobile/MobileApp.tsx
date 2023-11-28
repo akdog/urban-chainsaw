@@ -18,18 +18,22 @@ const MobileApp = () => {
 
   return (
     <>
-      <ProductProvider currentLocation={currentLocation}>
+      <ProductProvider
+        currentLocation={currentLocation}
+        categoryID={categoryID}
+      >
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/success-page" element={<SuccessPage />} />
           <Route
             path="/main"
-            element={
-              <MainPage setCategory={setCategoryID} categroy={categoryID} />
-            }
+            element={<MainPage setCategoryID={setCategoryID} />}
           />
-          <Route path="/category" element={<CategoryPage />} />
+          <Route
+            path="/category"
+            element={<CategoryPage setCategoryID={setCategoryID} />}
+          />
           <Route path="/all" element={<ViewAllPage />} />
         </Routes>
       </ProductProvider>

@@ -3,16 +3,15 @@ import Slider from "../components/Slider";
 import TopCategory from "../components/TopCategory";
 
 type Props = {
-  category: number;
-  setCategory: number;
+  setCategoryID: React.Dispatch<React.SetStateAction<number | null>>;
 };
 
-const MainPage = ({ setCategory, category }: Props) => {
+const MainPage = ({ setCategoryID }: Props) => {
   return (
     <>
       <Navbar />
       <Slider />
-      <TopCategory setCategory={setCategory} category={category} />
+      <TopCategory setCategoryID={setCategoryID} />
     </>
   );
 };

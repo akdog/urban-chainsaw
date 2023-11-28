@@ -5,12 +5,16 @@ import BasketHeader from "../components/BasketHeader";
 import TopSells from "../components/TopSells";
 import Products from "../components/Products";
 
-const CategoryPage = () => {
+type Props = {
+  setCategoryID: React.Dispatch<React.SetStateAction<number | null>>;
+};
+
+const CategoryPage = ({ setCategoryID }: Props) => {
   return (
     <Main>
       <Searchbar />
       <BasketHeader />
-      <TopSells />
+      <TopSells setCategoryID={setCategoryID} />
       <Products />
     </Main>
   );

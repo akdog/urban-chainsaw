@@ -1,8 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-const TopSells = () => {
+type Props = {
+  setCategoryID: React.Dispatch<React.SetStateAction<number | null>>;
+};
+
+type OverallCategoriesType = {
+  id: number;
+  type: string;
+};
+
+const TopSells = ({ setCategoryID }: Props) => {
+  const navigate = useNavigate();
+
+  const overallCategories: OverallCategoriesType[] = [
+    { id: 1, type: "Electronics" },
+    { id: 2, type: "Jewelery" },
+    { id: 3, type: "Clothing" },
+  ];
+
+  const handleNavigate = (id: number) => {
+    navigate("/all");
+    setCategoryID(id);
+  };
+
   return (
     <Main>
       <div className="header-container">
@@ -10,15 +32,15 @@ const TopSells = () => {
         <Link to="/all">View All</Link>
       </div>
       <div className="product-category">
-        <div className="categorys">
-          <a href="">Top Products</a>
-        </div>
-        <div className="categorys">
-          <a href="">Top Products</a>
-        </div>
-        <div className="categorys">
-          <a href="">Top Products</a>
-        </div>
+        {overallCategories.map((item) => (
+          <div
+            className="categorys"
+            onClick={() => handleNavigate(item.id)}
+            key={item.id}
+          >
+            <a href="">{item.type}</a>
+          </div>
+        ))}
       </div>
     </Main>
   );

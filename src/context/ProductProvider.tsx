@@ -7,24 +7,40 @@ import { Product } from "@/types/TPorducts";
 type ChildrenType = {
   children: React.ReactElement;
   currentLocation: string;
+  categoryID: number | null;
 };
 
 export const ProductProvider = ({
   children,
   currentLocation,
+  categoryID,
 }: ChildrenType) => {
   const [data, setData] = useState<Product[]>([]);
   const [locationData, setLocationData] = useState<string>("");
 
   useEffect(() => {
-    if (currentLocation === "/main") {
-      setLocationData("");
-    } else if (currentLocation === "/category") {
-      setLocationData("/category/electronics");
-    } else if (currentLocation === "/all") {
-      setLocationData("");
+    switch (categoryID) {
+      case null:
+      case 5:
+      case 6:
+        setLocationData("");
+        break;
+      case 1:
+        setLocationData("/category/electronics");
+        break;
+      case 2:
+        setLocationData("/category/jewelery");
+        break;
+      case 3:
+        setLocationData("/category/men's clothing");
+        break;
+      case 4:
+        setLocationData("/category/women's clothing");
+        break;
+      default:
+        setLocationData("");
     }
-  }, [currentLocation]);
+  }, [categoryID, currentLocation]);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products${locationData}`)
