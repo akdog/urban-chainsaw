@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import styled from "styled-components";
 
 import Searchbar from "../components/Searchbar";
@@ -5,16 +7,12 @@ import BasketHeader from "../components/BasketHeader";
 import TopSells from "../components/TopSells";
 import Products from "../components/Products";
 
-type Props = {
-  setCategoryID: React.Dispatch<React.SetStateAction<number | null>>;
-};
-
-const CategoryPage = ({ setCategoryID }: Props) => {
+const CategoryPage = () => {
   return (
     <Main>
       <Searchbar />
       <BasketHeader />
-      <TopSells setCategoryID={setCategoryID} />
+      <TopSells />
       <Products />
     </Main>
   );

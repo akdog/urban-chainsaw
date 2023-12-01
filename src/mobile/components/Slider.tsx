@@ -1,12 +1,25 @@
+import { useState } from "react";
+
 import styled from "styled-components";
 
 import Searchbar from "./Searchbar";
+import SimpleBackdrop from "./SimpleBackdrop";
 
 const Slider = () => {
   type LogoType = {
     id: number;
     src: string;
     alt: string;
+  };
+
+  const [imageLoading, setImageLoading] = useState<boolean>(true);
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+  };
+
+  const handleImageError = () => {
+    setImageLoading(false);
   };
 
   const logos: LogoType[] = [
@@ -41,7 +54,10 @@ const Slider = () => {
         <img
           src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.landing-big_2x.jpg"
           alt="Product Image"
+          onLoad={handleImageLoad}
+          onError={handleImageError}
         />
+        <SimpleBackdrop open={imageLoading} />
       </div>
       <div className="slider-container">
         <div className="logo-container">
@@ -77,7 +93,9 @@ const Main = styled.div`
 
     .logo-container {
       width: 30%;
-      display: inline-block;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
 
       img {
         width: 100%;

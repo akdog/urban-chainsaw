@@ -2,16 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-type Props = {
-  setCategoryID: React.Dispatch<React.SetStateAction<number | null>>;
-};
-
 type OverallCategoriesType = {
   id: number;
   type: string;
 };
 
-const TopSells = ({ setCategoryID }: Props) => {
+const TopSells = () => {
   const navigate = useNavigate();
 
   const overallCategories: OverallCategoriesType[] = [
@@ -22,7 +18,6 @@ const TopSells = ({ setCategoryID }: Props) => {
 
   const handleNavigate = (id: number) => {
     navigate("/all");
-    setCategoryID(id);
   };
 
   return (
@@ -83,11 +78,15 @@ const Main = styled.div`
     width: 100%;
 
     .categorys {
-      background: gray;
+      background: #323232;
       padding: 0.2rem 2rem;
       border-radius: 20px;
 
       flex: 0 0 auto;
+
+      a {
+        color: white;
+      }
     }
   }
 `;

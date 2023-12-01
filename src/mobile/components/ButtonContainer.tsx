@@ -1,32 +1,30 @@
-import React from "react";
-
 import styled from "styled-components";
 
 import Button from "@mui/material/Button";
 import InputAdornment from "@mui/material/InputAdornment";
 
-import GoogleIcon from "@mui/icons-material/Google";
-import AppleIcon from "@mui/icons-material/Apple";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 
 const ButtonContainer = () => {
   return (
     <StyleButtons>
       <Button variant="outlined">
         <InputAdornment position="start">
-          <GoogleIcon />
+          <FcGoogle size={30} />
         </InputAdornment>
         Google
       </Button>
       <Button variant="outlined">
         <InputAdornment position="start">
-          <AppleIcon />
+          <FaApple size={30} />
         </InputAdornment>
         Apple
       </Button>
       <Button variant="outlined">
         <InputAdornment position="start">
-          <FacebookIcon />
+          <FaFacebook size={30} />
         </InputAdornment>
         Facebook
       </Button>

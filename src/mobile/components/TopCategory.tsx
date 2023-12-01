@@ -55,6 +55,7 @@ const TopCategory = ({ setCategoryID }: Props) => {
               className="cards"
               key={item.id}
               onClick={() => handleNavigate(item.category)}
+              id={item.id === "dishes" ? "dish-id" : ""}
             >
               {getIcon(item.id)}
               <p>{getCategoryName(item.id)}</p>
@@ -148,8 +149,8 @@ const Main = styled.div`
         text-align: center;
       }
 
-      #dish-id {
-        padding: 0.5rem;
+      &[id="dish-id"] {
+        padding: 2rem 1rem;
       }
     }
   }

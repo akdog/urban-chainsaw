@@ -9,7 +9,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 const Searchbar = () => {
   const location = useLocation();
 
-  if (location.pathname === "/category" || "/all") {
+  if (location.pathname === "/category" || location.pathname === "/all") {
     return (
       <MainCategory>
         <StyledFrontIcon id="catalog-basic" />

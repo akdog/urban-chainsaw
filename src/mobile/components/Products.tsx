@@ -6,7 +6,12 @@ import styled from "styled-components";
 import ProductComp from "./Product";
 import { useLocation } from "react-router-dom";
 
-const Products = () => {
+type Props = {
+  categoryID: number | null;
+  setCategoryID: React.Dispatch<React.SetStateAction<number | null>>;
+};
+
+const Products = ({ categoryID, setCategoryID }: Props) => {
   const data = useContext(ProductContext);
   const location = useLocation();
 

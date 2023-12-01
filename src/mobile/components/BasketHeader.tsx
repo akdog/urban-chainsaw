@@ -44,6 +44,8 @@ const Main = styled.div`
     width: 100%;
     height: 100%;
 
+    padding: 1rem;
+
     img {
       width: 100%;
       height: 100%;
@@ -68,9 +70,8 @@ const Main = styled.div`
       width: 80%;
       padding: 0.3rem 0rem;
       border-radius: 5px;
-
+      background: #dedddd;
       border: none;
-      background: #bfbfbf;
     }
   }
 `;

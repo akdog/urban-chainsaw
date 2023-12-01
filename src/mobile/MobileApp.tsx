@@ -30,11 +30,16 @@ const MobileApp = () => {
             path="/main"
             element={<MainPage setCategoryID={setCategoryID} />}
           />
+          <Route path="/category" element={<CategoryPage />} />
           <Route
-            path="/category"
-            element={<CategoryPage setCategoryID={setCategoryID} />}
+            path="/all"
+            element={
+              <ViewAllPage
+                categoryID={categoryID}
+                setCategoryID={setCategoryID}
+              />
+            }
           />
-          <Route path="/all" element={<ViewAllPage />} />
         </Routes>
       </ProductProvider>
     </>
