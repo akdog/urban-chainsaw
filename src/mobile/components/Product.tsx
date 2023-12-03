@@ -4,7 +4,9 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 
 import { Product } from "@/types/TPorducts";
 
-import { Location } from "react-router-dom";
+import { Location, useNavigate } from "react-router-dom";
+
+import { truncateTitle } from "@/hooks/truncateTitle";
 
 type Props = {
   item: Product;
@@ -12,20 +14,18 @@ type Props = {
   titleLength?: number;
 };
 
-const truncateTitle = (title: string, maxLength: number): string => {
-  if (title.length > maxLength) {
-    return title.substring(0, maxLength) + "...";
-  }
-
-  return title;
-};
-
 const ProductComp = ({ item, location, titleLength = 30 }: Props) => {
   const truncatedTitle = truncateTitle(item.title, titleLength);
 
+  const navigate = useNavigate();
+
+  const handleNavigate = (id: number) => {
+    navigate(`/product/${id}`);
+  };
+
   if (location.pathname === "/all") {
     return (
-      <MainAll>
+      <MainAll onClick={() => handleNavigate(item.id)}>
         <div className="img-container">
           <img src={item.image} alt="Logo Image" />
         </div>
@@ -43,7 +43,7 @@ const ProductComp = ({ item, location, titleLength = 30 }: Props) => {
   }
 
   return (
-    <Main>
+    <Main onClick={() => handleNavigate(item.id)}>
       <div className="img-container">
         <img src={item.image} alt="Logo Image" />
       </div>
@@ -166,7 +166,7 @@ const MainAll = styled.div`
     button {
       padding: 0.5rem 1.3rem;
       border: none;
-      background: gray;
+      background: #dedddd;
       border-radius: 5px;
     }
   }

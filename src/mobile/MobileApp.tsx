@@ -7,6 +7,7 @@ import SuccessPage from "./pages/SuccessPage";
 import MainPage from "./pages/MainPage";
 import CategoryPage from "./pages/CategoryPage";
 import ViewAllPage from "./pages/ViewAllPage";
+import SingleProduct from "./pages/SingleProduct";
 
 import { ProductProvider } from "@/context/ProductProvider";
 
@@ -40,6 +41,7 @@ const MobileApp = () => {
               />
             }
           />
+          <Route path="/product/:id" element={<SingleProduct />} />
         </Routes>
       </ProductProvider>
     </>
