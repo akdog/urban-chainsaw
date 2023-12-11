@@ -12,35 +12,19 @@ import SingleProduct from "./pages/SingleProduct";
 import { ProductProvider } from "@/context/ProductProvider";
 
 const MobileApp = () => {
-  const [categoryID, setCategoryID] = useState<number | null>(null);
-
   const location = useLocation();
   const currentLocation = location.pathname;
 
   return (
     <>
-      <ProductProvider
-        currentLocation={currentLocation}
-        categoryID={categoryID}
-      >
+      <ProductProvider currentLocation={currentLocation}>
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/success-page" element={<SuccessPage />} />
-          <Route
-            path="/main"
-            element={<MainPage setCategoryID={setCategoryID} />}
-          />
+          <Route path="/main" element={<MainPage />} />
           <Route path="/category" element={<CategoryPage />} />
-          <Route
-            path="/all"
-            element={
-              <ViewAllPage
-                categoryID={categoryID}
-                setCategoryID={setCategoryID}
-              />
-            }
-          />
+          <Route path="/all" element={<ViewAllPage />} />
           <Route path="/product/:id" element={<SingleProduct />} />
         </Routes>
       </ProductProvider>

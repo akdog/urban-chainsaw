@@ -1,22 +1,19 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import { ProductContext } from "./ProductStore";
 
-import { Product } from "@/types/TPorducts";
+import { useProductSource } from "@/hooks/useProductSource";
 
 type ChildrenType = {
   children: React.ReactElement;
   currentLocation: string;
-  categoryID: number | null;
 };
 
 export const ProductProvider = ({
   children,
   currentLocation,
-  categoryID,
 }: ChildrenType) => {
-  const [data, setData] = useState<Product[]>([]);
-  const [locationData, setLocationData] = useState<string>("");
+  const { data, setLocationData, categoryID } = useProductSource();
 
   useEffect(() => {
     switch (categoryID) {
@@ -41,12 +38,6 @@ export const ProductProvider = ({
         setLocationData("");
     }
   }, [categoryID, currentLocation]);
-
-  useEffect(() => {
-    fetch(`https://fakestoreapi.com/products${locationData}`)
-      .then((res) => res.json())
-      .then((json) => setData(json));
-  }, [locationData]);
 
   return (
     <>

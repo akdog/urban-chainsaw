@@ -6,14 +6,11 @@ import CoffeeIcon from "@mui/icons-material/Coffee";
 import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
 import DeckIcon from "@mui/icons-material/Deck";
 import styled from "styled-components";
+import { useProductSource } from "@/hooks/useProductSource";
 
 type CategoryItem = {
   id: string;
   category: number;
-};
-
-type Props = {
-  setCategoryID: React.Dispatch<React.SetStateAction<number | null>>;
 };
 
 const categories: CategoryItem[] = [
@@ -25,11 +22,14 @@ const categories: CategoryItem[] = [
   { id: "house-garden", category: 6 },
 ];
 
-const TopCategory = ({ setCategoryID }: Props) => {
+const TopCategory = () => {
   const navigate = useNavigate();
+
+  const { setCategoryID } = useProductSource();
 
   const handleNavigate = (category: number) => {
     setCategoryID(category);
+    console.log("Selected Category ID:", category);
     navigate("/category");
   };
 

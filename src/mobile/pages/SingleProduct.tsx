@@ -9,8 +9,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { truncateTitle } from "@/hooks/truncateTitle";
+import { Accordion } from "@mui/material";
+import { AccordionSummary } from "@mui/material";
+import { AccordionDetails } from "@mui/material";
 
 import { FaRegHeart } from "react-icons/fa";
 import { FaShare } from "react-icons/fa";
@@ -67,7 +70,48 @@ const SingleProduct = () => {
         <FaShare size={25} />
       </div>
       <div className="description-container">
-        <h4>{result?.description}</h4>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            Description
+          </AccordionSummary>
+          <AccordionDetails>
+            <h4>{result?.description}</h4>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            Sizes
+          </AccordionSummary>
+          <AccordionDetails>
+            <h4>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod,
+              provident! Perferendis libero nulla in consequuntur.
+            </h4>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            Terms Of Service
+          </AccordionSummary>
+          <AccordionDetails>
+            <h4>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
+              harum odit eligendi pariatur dolores quae.
+            </h4>
+          </AccordionDetails>
+        </Accordion>
       </div>
     </Main>
   );
